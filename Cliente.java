@@ -39,7 +39,7 @@ public class Cliente {
   }
 
   public String getEmail(){
-    return this.nome;
+    return this.email;
   }
 
   public void setEmail(String email){

@@ -72,4 +72,13 @@ public class Evento {
     Calendar calendario = Calendar.getInstance();
     return calendario.get(Calendar.YEAR);
   }
+
+  @Override
+  public String toString() {
+    return "Nome do evento: " + getNome() + "\n" + "Horário: " + getHorario() + "\n" + "Data da realização: " + formataData() + "\n" + "Descrição: " + getDescricao() + "\n" + "Preço: R$" + getPreco() + "\n" + "Capacidade: " + getCapacidade();
+  }
+
+  public String formataData() {
+    return this.data.getDayOfMonth() + "/" + this.data.getMonthValue() + "/" + this.data.getYear();
+  }
 }

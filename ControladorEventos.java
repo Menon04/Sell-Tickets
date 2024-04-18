@@ -5,22 +5,40 @@ public class ControladorEventos {
 
   public static boolean listarEventos() {
     if (eventos.isEmpty()) {
+      System.out.println("Não há eventos disponíveis no momento.");
       return false;
     } else {
+      System.out.println("Lista de eventos: \n");
+      System.out.println("=======================================");
       for (Evento evento : eventos) {
-        System.out.println(evento.getNome());
-        System.out.println(evento.getDescricao());
-        System.out.println(evento.getDate());
-        System.out.println(evento.getHorario());
-        System.out.println(evento.getPreco());
-        System.out.println(evento.getCapacidade());
+        System.out.println(evento.toString());
+        System.out.println("=======================================");
       }
       return true;
     }
   }
 
-	public static void cadastrarEventos() {
-		Evento evento = Main.lerDadosEvento();
-    eventos.add(evento);
+  public static void cadastrarEventos() {
+    Evento evento = Main.lerDadosEvento();
+    boolean eventoExistente = false;
+
+    for (Evento e : eventos) {
+      if (e.getDate().equals(evento.getDate()) && e.getHorario().equals(evento.getHorario())) {
+        eventoExistente = true;
+        break;
+      }
+    }
+
+    if (eventoExistente) {
+      System.out.println("Já existe um evento cadastrado para essa data.");
+      Main.apresentacao();
+    } else {
+      eventos.add(evento);
+      System.out.println("Evento cadastrado com sucesso!");
+    }
+  }
+
+  public static void comprarIngresso() {
+    System.out.println("Informe o nome do evento que você vai comprar: ");
   }
 }

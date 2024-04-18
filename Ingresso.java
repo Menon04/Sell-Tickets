@@ -1,10 +1,10 @@
 public class Ingresso {
   private Evento evento;
-  private int cadeira;
-  private String nomeUsuario; //nao consigo pensar em um nome melhor
+  private int assento;
+  private String nomeUsuario;
 
   public Ingresso(Evento evento, int cadeira, String nomeUsuario){
-    setCadeira(cadeira);
+    setAssento(assento);
     setEvento(evento);
     setNomeUsuario(nomeUsuario);
   }
@@ -25,13 +25,14 @@ public class Ingresso {
     this.evento = evento;
   }
 
-  public int getCadeira(){
-    return this.cadeira;
+  public int getAssento(){
+    return this.assento;
   }
 
-  public void setCadeira(int cadeira){
-    this.cadeira = cadeira;
+  public void setAssento(int assento){
+    this.assento = assento;
   }
+  
   public String getNomeUsuario(){
     return this.nomeUsuario;
   }

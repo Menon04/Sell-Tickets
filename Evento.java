@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Calendar;
 
 public class Evento {
   private String nome;
@@ -7,12 +8,12 @@ public class Evento {
   private String descricao;
   private double preco;
   private int capacidade;
-
   
-  public Evento(String nome, String horario, int ano, int mes, int dia, String descricao, double preco, int capacidade) {
+  
+  public Evento(String nome, String horario, int mes, int dia, String descricao, double preco, int capacidade) {
     setNome(nome);
     setHorario(horario);
-    setData(LocalDate.of(ano, mes, dia));
+    setData(LocalDate.of(anoAtual(), mes, dia));
     setDescricao(descricao);
     setPreco(preco);
     setCapacidade(capacidade);
@@ -65,5 +66,10 @@ public class Evento {
 
   public void setCapacidade(int capacidade){
     this.capacidade = capacidade;
+  }
+
+  public int anoAtual(){
+    Calendar calendario = Calendar.getInstance();
+    return calendario.get(Calendar.YEAR);
   }
 }

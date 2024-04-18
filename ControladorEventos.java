@@ -20,7 +20,7 @@ public class ControladorEventos {
   }
 
 	public static void cadastrarEventos() {
-		Evento evento = Main.pegarDadosEvento();
+		Evento evento = Main.lerDadosEvento();
     eventos.add(evento);
   }
 }

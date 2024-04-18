@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 @SuppressWarnings("unused")
@@ -62,66 +63,150 @@ public class Main {
     apresentacao();
   }
 
-  public static Evento pegarDadosEvento() {
-    String nome = pegarNome();
-    String descricao = pegarDescricao();
+  public static Evento lerDadosEvento() {
+    String nome = lerNome();
+    String descricao = lerDescricao();
     System.out.println("Informacoes da data do evento");
-    
-    
-    System.out.println("Digite o ano: ");
-    int ano = console.nextInt();
-    System.out.println("Digite o mês: ");
-    int mes = console.nextInt();
-    System.out.println("Digite o dia: ");
-    int dia = console.nextInt();
-    System.out.println("=================================");
+    int mes = lerMes();
+    int dia = lerDia(mes);
+    String horario = lerHorario();
+    double preco = lerPreco();
+    int capacidade = lerCapacidade();
 
-    System.out.println("Digite o horário do evento: ");
-    String horario = console.next();
-    System.out.println("=================================");
-
-    System.out.println("Digite o preço do evento: ");
-    double preco = console.nextDouble();
-    System.out.println("=================================");
-
-    System.out.println("Digite a capacidade do evento: ");
-    int capacidade = console.nextInt();
-    System.out.println("=================================");
-    
-    return new Evento(nome, horario, ano, mes, dia, descricao, preco, capacidade);
+    return new Evento(nome, horario, mes, dia, descricao, preco, capacidade);
   }
 
-  private static String pegarDescricao() {
+  private static int lerCapacidade() {
+    System.out.println("Digite a capacidade do evento: ");
+    String capacidade = console.next();
+    return validarCapacidade(capacidade);
+  }
+
+  private static int validarCapacidade(String capacidadeStr) {
+    if (capacidadeStr.matches("\\d+")) {
+      int capacidade = Integer.parseInt(capacidadeStr);
+      if (capacidade > 0 && capacidade <= 1751) {
+        return capacidade;
+      }
+    }
+    System.out.println("Capacidade inválida! Digite novamente.");
+    return lerCapacidade();
+  }
+
+  private static double lerPreco() {
+    System.out.println("Digite o preço do evento: ");
+    String preco = console.next();
+    return validarPreco(preco);
+  }
+
+  private static double validarPreco(String precoStr) {
+    if (precoStr.matches("\\d+")) {
+      double preco = Integer.parseInt(precoStr);
+      if (preco >= 1) {
+        return preco;
+      }
+    }
+    System.out.println("Preço inválido! Digite novamente.");
+    return lerPreco();
+  }
+
+  private static String lerHorario() {
+    System.out.println("Digite o horário do evento: ");
+    String horario = console.next();
+    return validarHorario(horario);
+  }
+
+  private static String validarHorario(String horario) {
+    if (horario.matches("([01]?[0-9]|2[0-3]):[0-5][0-9]")) {
+      return horario;
+    } else {
+      System.out.println("Horário inválido! Digite novamente.");
+      return lerHorario();
+    }
+  }
+
+  private static int lerDia(int mes) {
+    System.out.println("Digite o dia: ");
+    String dia = console.next();
+    return validarDia(dia, mes);
+  }
+
+  private static int validarDia(String diaStr, int mes) {
+    if (diaStr.matches("\\d+")) {
+      int dia = Integer.parseInt(diaStr);
+      if (validarDiaNoMes(dia, mes)) {
+        return dia;
+      }
+    }
+    System.out.println("Dia inválido! Digite novamente.");
+    return lerDia(mes);
+  }
+
+  private static boolean validarDiaNoMes(int dia, int mes) {
+    int[] mesesCom30Dias = {4, 6, 9, 11};
+
+    if (dia < 1 || dia > 31) {
+      return false;
+    }
+
+    if (mes == 2 && dia > 28) {
+      System.out.println("Data inválida! Digite novamente.");
+      return false;
+    } 
+    
+    if (Arrays.binarySearch(mesesCom30Dias, mes) >= 0 && dia > 30) {
+      System.out.println("Data inválida! Digite novamente.");
+      return false;
+    } 
+
+    return true;
+  }
+
+  private static int lerMes() {
+    System.out.println("Digite o mês: ");
+    String mes = console.next();
+    return validarMes(mes);
+  }
+
+  private static int validarMes(String mesStr) {
+    if (mesStr.matches("\\d+")) {
+      int mes = Integer.parseInt(mesStr);
+      if (mes >= 1 && mes <= 12) {
+        return mes;
+      }
+    }
+    System.out.println("Mês inválido! Digite novamente.");
+    return lerMes();
+  }
+
+  private static String lerDescricao() {
     System.out.println("Digite a descrição do evento: ");
     String descricao = console.next();
     return validarDescricao(descricao);
   }
 
   private static String validarDescricao(String descricao) {
-    if (descricao.matches("[a-zA-Z]{10,}")) {
+    if (descricao.matches(".*[a-zA-Z].*") && descricao.length() >= 10) {
       return descricao;
     } else {
       System.out.println("Descrição deve ter no minimo 10 caracteres! Digite novamente.");
-      return pegarDescricao();
+      return lerDescricao();
     }
   }
 
-  private static String pegarNome() {
+  private static String lerNome() {
     System.out.println("Digite o nome do evento: ");
     String nome = console.next();
     return validarNome(nome);
   }
 
   private static String validarNome(String nome) {
-    if (nome.matches("[a-zA-Z]{3,}")) {
+    if (nome.matches(".*[a-zA-Z].*")) {
       return nome;
     } else {
       System.out.println("Nome inválido! Digite novamente.");
-      return pegarNome();
+      return lerNome();
     }
   }
 
-  // private static int pegarAno(int ano){
-
-  // }
 }

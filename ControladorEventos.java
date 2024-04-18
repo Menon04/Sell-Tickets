@@ -38,7 +38,4 @@ public class ControladorEventos {
     }
   }
 
-  public static void comprarIngresso() {
-    System.out.println("Informe o nome do evento que você vai comprar: ");
-  }
 }

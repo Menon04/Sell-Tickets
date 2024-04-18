@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 @SuppressWarnings("unused")
 public class Main {
   private final static Scanner console = new Scanner(System.in);
@@ -19,17 +18,18 @@ public class Main {
     System.out.println("2 - Comprar Ingresso");
     System.out.println("3 - Informações de Assentos");
     System.out.println("4 - Cadastrar Evento");
-    System.out.println("5 - Sair");
+    System.out.println("5 - Cadastrar Cliente");
+    System.out.println("6 - Sair");
     String opcao = console.next();
 
-    if (opcao.matches("[1-5]")) {
+    if (opcao.matches("[1-6]")) {
       switch (opcao) {
         case "1":
           ControladorEventos.listarEventos();
           apresentacao();
           break;
         case "2":
-          ControladorEventos.comprarIngresso();
+          
           apresentacao();
           break;
         case "3":
@@ -40,6 +40,10 @@ public class Main {
           apresentacao();
           break;
         case "5":
+          ControladorClientes.cadastrarCliente();
+          apresentacao();
+          break;
+        case "6":
           System.out.println("Obrigado por utilizar o sistema!");
           System.exit(0);
           break;

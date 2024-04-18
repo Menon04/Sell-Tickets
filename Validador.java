@@ -7,7 +7,7 @@ public class Validador {
       return nome;
     } else {
       System.out.println("Nome inválido! Digite novamente.");
-      return Main.lerNome();
+      return Main.lerNomeEvento();
     }
   }
 
@@ -16,7 +16,7 @@ public class Validador {
       return descricao;
     } else {
       System.out.println("Descrição deve ter no minimo 10 caracteres! Digite novamente.");
-      return Main.lerDescricao();
+      return Main.lerDescricaoEvento();
     }
   }
 
@@ -28,7 +28,7 @@ public class Validador {
       }
     }
     System.out.println("Mês inválido! Digite novamente.");
-    return Main.lerMes();
+    return Main.lerMesEvento();
   }
 
   public static boolean validarDiaNoMes(int dia, int mes) {
@@ -59,7 +59,7 @@ public class Validador {
       }
     }
     System.out.println("Dia inválido! Digite novamente.");
-    return Main.lerDia(mes);
+    return Main.lerDiaEvento(mes);
   }
 
   public static String validarHorario(String horario) {
@@ -67,7 +67,7 @@ public class Validador {
       return horario;
     } else {
       System.out.println("Horário inválido! Digite novamente.");
-      return Main.lerHorario();
+      return Main.lerHorarioEvento();
     }
   }
 
@@ -79,7 +79,7 @@ public class Validador {
       }
     }
     System.out.println("Preço inválido! Digite novamente.");
-    return Main.lerPreco();
+    return Main.lerPrecoEvento();
   }
 
   public static int validarCapacidade(String capacidadeStr) {
@@ -90,6 +90,6 @@ public class Validador {
       }
     }
     System.out.println("Capacidade inválida! Digite novamente.");
-    return Main.lerCapacidade();
+    return Main.lerCapacidadeEvento();
   }
 }

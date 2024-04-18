@@ -63,55 +63,56 @@ public class Main {
   }
 
   public static Evento lerDadosEvento() {
-    String nome = lerNome();
-    String descricao = lerDescricao();
+    String nome = lerNomeEvento();
+    String descricao = lerDescricaoEvento();
     System.out.println("Informacoes da data do evento");
-    int mes = lerMes();
-    int dia = lerDia(mes);
-    String horario = lerHorario();
-    double preco = lerPreco();
-    int capacidade = lerCapacidade();
+    int mes = lerMesEvento();
+    int dia = lerDiaEvento(mes);
+    String horario = lerHorarioEvento();
+    double preco = lerPrecoEvento();
+    int capacidade = lerCapacidadeEvento();
 
+    System.out.println("Evento cadastrado com sucesso!");
     return new Evento(nome, horario, mes, dia, descricao, preco, capacidade);
   }
   
-  public static int lerCapacidade() {
+  public static int lerCapacidadeEvento() {
     System.out.println("Digite a capacidade do evento: ");
     String capacidade = console.next();
     return Validador.validarCapacidade(capacidade);
   }
 
-  public static double lerPreco() {
+  public static double lerPrecoEvento() {
     System.out.println("Digite o preço do evento: ");
     String preco = console.next();
     return Validador.validarPreco(preco);
   }
 
-  public static String lerHorario() {
+  public static String lerHorarioEvento() {
     System.out.println("Digite o horário do evento: ");
     String horario = console.next();
     return Validador.validarHorario(horario);
   }
 
-  public static int lerDia(int mes) {
+  public static int lerDiaEvento(int mes) {
     System.out.println("Digite o dia: ");
     String dia = console.next();
     return Validador.validarDia(dia, mes);
   }
 
-  public static int lerMes() {
+  public static int lerMesEvento() {
     System.out.println("Digite o mês: ");
     String mes = console.next();
     return Validador.validarMes(mes);
   }
 
-  public static String lerDescricao() {
+  public static String lerDescricaoEvento() {
     System.out.println("Digite a descrição do evento: ");
     String descricao = console.next();
     return Validador.validarDescricao(descricao);
   }
 
-  public static String lerNome() {
+  public static String lerNomeEvento() {
     System.out.println("Digite o nome do evento: ");
     String nome = console.next();
     return Validador.validarNome(nome);

@@ -31,7 +31,7 @@ public class ControladorEventos {
 
     if (eventoExistente) {
       System.out.println("Já existe um evento cadastrado para essa data.");
-      Main.apresentacao();
+      MenuPrincipal.apresentacao();
     } else {
       eventos.add(evento);
       System.out.println("Evento cadastrado com sucesso!");
@@ -46,9 +46,7 @@ public class ControladorEventos {
     int dia = Main.lerDia(mes);
     String horario = Main.lerHorarioEvento();
     double preco = Main.lerPrecoEvento();
-    int capacidade = Main.lerCapacidadeEvento();
 
-    return new Evento(nome, horario, mes, dia, descricao, preco, capacidade);
+    return new Evento(nome, horario, mes, dia, descricao, preco);
   }
-
 }

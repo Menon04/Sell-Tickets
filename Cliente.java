@@ -5,6 +5,7 @@ public class Cliente {
   private String nome;
   private String cpf;
   private LocalDate dataNasc;
+  private Ingresso ingresso = null;
 
   public Cliente(String nome, String cpf, int ano, int mes, int dia){
     setNome(nome);
@@ -39,5 +40,13 @@ public class Cliente {
   
   public void setDataNasc(LocalDate dataNasc){
     this.dataNasc = dataNasc;
+  }
+
+  public void setIngresso(Ingresso ingresso){
+    this.ingresso = ingresso;
+  }
+
+  public Ingresso getIngresso(){
+    return this.ingresso;
   }
 }

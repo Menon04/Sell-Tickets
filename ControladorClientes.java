@@ -16,11 +16,11 @@ public class ControladorClientes {
 
     if (clienteExistente) {
       System.out.println("Já existe um cliente cadastrado com esse CPF.");
-      Main.apresentacao();
+      MenuPrincipal.apresentacao();
     } else {
       clientes.add(cliente);
       System.out.println("Cliente cadastrado com sucesso!");
-      Main.apresentacao();
+      MenuPrincipal.apresentacao();
     }
   }
 

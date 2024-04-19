@@ -83,17 +83,6 @@ public class Validador {
     return Main.lerPrecoEvento();
   }
 
-  public static int validarCapacidade(String capacidadeStr) {
-    if (capacidadeStr.matches("\\d+")) {
-      int capacidade = Integer.parseInt(capacidadeStr);
-      if (capacidade > 0 && capacidade <= 1751) {
-        return capacidade;
-      }
-    }
-    System.out.println("Capacidade inválida! Digite novamente.");
-    return Main.lerCapacidadeEvento();
-  }
-
   public static int validarAno(String ano) {
     if (ano.matches("\\d+")) {
       int anoAtual = Calendar.getInstance().get(Calendar.YEAR);

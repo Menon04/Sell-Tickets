@@ -5,18 +5,19 @@ public class Evento {
   private String nome;
   private String horario;
   private LocalDate data;
+  private Assento assento;
   private String descricao;
   private double preco;
-  private int capacidade;
+  private int capacidade = 1751;
   
   
-  public Evento(String nome, String horario, int mes, int dia, String descricao, double preco, int capacidade) {
+  public Evento(String nome, String horario, int mes, int dia, String descricao, double preco) {
     setNome(nome);
     setHorario(horario);
     setData(LocalDate.of(anoAtual(), mes, dia));
     setDescricao(descricao);
     setPreco(preco);
-    setCapacidade(capacidade);
+    this.assento = new Assento();
   }
   
   public String getHorario()
@@ -64,10 +65,6 @@ public class Evento {
     this.preco = preco;
   }
 
-  public void setCapacidade(int capacidade){
-    this.capacidade = capacidade;
-  }
-
   public int anoAtual(){
     Calendar calendario = Calendar.getInstance();
     return calendario.get(Calendar.YEAR);
@@ -86,4 +83,9 @@ public class Evento {
   public String formataData() {
     return this.data.getDayOfMonth() + "/" + this.data.getMonthValue() + "/" + this.data.getYear();
   }
+
+  public Assento getAssento() {
+    return this.assento;
+  }
+
 }

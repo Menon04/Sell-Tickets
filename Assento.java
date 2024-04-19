@@ -1,4 +1,4 @@
-public abstract class Assento {
+public class Assento {
   private int[] plateiaA = new int[572];
   private int[] plateiaB = new int[660];
   private int[] balcaoNobre = new int[269];
@@ -60,7 +60,7 @@ public abstract class Assento {
           informacoesAssentos();
           break;
         case "5":
-          Main.apresentacao();
+          MenuPrincipal.apresentacao();
           break;
       }
     } else {

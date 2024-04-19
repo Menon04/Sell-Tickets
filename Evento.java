@@ -75,7 +75,12 @@ public class Evento {
 
   @Override
   public String toString() {
-    return "Nome do evento: " + getNome() + "\n" + "Horário: " + getHorario() + "\n" + "Data da realização: " + formataData() + "\n" + "Descrição: " + getDescricao() + "\n" + "Preço: R$" + getPreco() + "\n" + "Capacidade: " + getCapacidade();
+    return "Nome do evento: " + getNome() + "\n" +
+           "Horário: " + getHorario() + "\n" +
+           "Data da realização: " + formataData() + "\n" + 
+           "Descrição: " + getDescricao() + "\n" + 
+           "Preço: R$" + getPreco() + "\n" + 
+           "Capacidade: " + getCapacidade();
   }
 
   public String formataData() {

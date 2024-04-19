@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class ControladorEventos {
-  private static ArrayList<Evento> eventos = new ArrayList<Evento>();
+  public static ArrayList<Evento> eventos = new ArrayList<Evento>();
 
   public static boolean listarEventos() {
     if (eventos.isEmpty()) {
@@ -19,7 +19,7 @@ public class ControladorEventos {
   }
 
   public static void cadastrarEventos() {
-    Evento evento = Main.lerDadosEvento();
+    Evento evento = lerDadosEvento();
     boolean eventoExistente = false;
 
     for (Evento e : eventos) {
@@ -36,6 +36,19 @@ public class ControladorEventos {
       eventos.add(evento);
       System.out.println("Evento cadastrado com sucesso!");
     }
+  }
+
+  public static Evento lerDadosEvento() {
+    String nome = Main.lerNomeEvento();
+    String descricao = Main.lerDescricaoEvento();
+    System.out.println("Informacoes da data do evento");
+    int mes = Main.lerMes();
+    int dia = Main.lerDia(mes);
+    String horario = Main.lerHorarioEvento();
+    double preco = Main.lerPrecoEvento();
+    int capacidade = Main.lerCapacidadeEvento();
+
+    return new Evento(nome, horario, mes, dia, descricao, preco, capacidade);
   }
 
 }

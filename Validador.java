@@ -1,8 +1,9 @@
 import java.util.Arrays;
+import java.util.Calendar;
 
 public class Validador {
 
-  public static String validarNome(String nome) {
+  public static String validarNomeEvento(String nome) {
     if (nome.matches(".*[a-zA-Z].*")) {
       return nome;
     } else {
@@ -28,7 +29,7 @@ public class Validador {
       }
     }
     System.out.println("Mês inválido! Digite novamente.");
-    return Main.lerMesEvento();
+    return Main.lerMes();
   }
 
   public static boolean validarDiaNoMes(int dia, int mes) {
@@ -59,7 +60,7 @@ public class Validador {
       }
     }
     System.out.println("Dia inválido! Digite novamente.");
-    return Main.lerDiaEvento(mes);
+    return Main.lerDia(mes);
   }
 
   public static String validarHorario(String horario) {
@@ -91,5 +92,35 @@ public class Validador {
     }
     System.out.println("Capacidade inválida! Digite novamente.");
     return Main.lerCapacidadeEvento();
+  }
+
+  public static int validarAno(String ano) {
+    if (ano.matches("\\d+")) {
+      int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
+      int anoInt = Integer.parseInt(ano);
+      if (anoInt >= 1900 && anoInt <= anoAtual) {
+        return anoInt;
+      }
+    }
+    System.out.println("Ano inválido! Digite novamente.");
+    return Main.lerAno();
+  }
+
+  public static String validarCpf(String cpf) {
+    if (cpf.matches("\\d{11}")) {
+      return cpf;
+    } else {
+      System.out.println("CPF inválido! Digite novamente.");
+      return Main.lerCpf();
+    }
+  }
+
+  public static String validarNomeCliente(String nome) {
+    if (nome.matches(".*[a-zA-Z].*")) {
+      return nome;
+    } else {
+      System.out.println("Nome inválido! Digite novamente.");
+      return Main.lerNomeCliente();
+    }
   }
 }

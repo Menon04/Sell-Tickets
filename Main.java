@@ -1,7 +1,7 @@
 import java.util.Scanner;
 @SuppressWarnings("unused")
 public class Main {
-  private final static Scanner console = new Scanner(System.in);
+  public final static Scanner console = new Scanner(System.in);
 
   public static void main(String[] args) {
     try {
@@ -29,11 +29,11 @@ public class Main {
           apresentacao();
           break;
         case "2":
-          
+          Agendador.comprarIngresso();
           apresentacao();
           break;
         case "3":
-          informacoesAssentos();
+          Assento.informacoesAssentos();
           break;
         case "4":
           ControladorEventos.cadastrarEventos();
@@ -48,67 +48,14 @@ public class Main {
           System.exit(0);
           break;
       }
+    } else {
+      opcaoInvalida();
     }
-    opcaoInvalida();
-  }
-
-  private static void informacoesAssentos() {
-    System.out.println("Informe qual seção de assentos você gostaria de saber mais: ");
-    System.out.println("1 - Plateia");
-    System.out.println("2 - Balcão Nobre");
-    System.out.println("3 - Camarote");
-    System.out.println("4 - Galeria");
-    System.out.println("5 - Voltar ao menu principal");
-    String opcao = console.next();
-
-    if (opcao.matches("[1-5]")) {
-      switch (opcao) {
-        case "1":
-          System.out.println("Temos a plateia sendo dividida entre Plateia A e Plateia B: ");
-          System.out.println(
-            "A Plateia A contém 572 cadeiras totais, sendo 200 cadeiras localizadas ao centro, 186 ao lado direito e 186 ao esquerdo");
-          System.out.println(
-            "Na Plateia B, temos mais cadeiras: 660, sendo distribuídas entre 200 ao centro, 230 ao lado direito e 230 ao lado esquerdo.\n");
-          informacoesAssentos();
-          break;
-        case "2":
-          System.out.println(
-            "O Balcão Nobre contém 269 cadeiras ao todo, sendo 123 cadeiras ao centro, 73 ao lado direito e 73 ao lado esquerdo.\n");
-          informacoesAssentos();
-          break;
-        case "3":
-          System.out.println(
-            "O Camarote possui poucas cadeiras, sendo 120 ao total, trazendo mais conforto e exclusividade. São 10 camarotes ímpares (contendo 6 cadeiras cada uma), tanto do lado direito quanto do lado esquerdo.\n");
-          informacoesAssentos();
-          break;
-        case "4":
-          System.out.println("Na Galeria, possuímos 130 cadeiras.\n");
-          informacoesAssentos();
-          break;
-        case "5":
-          apresentacao();
-          break;
-      }
-    }
-    informacoesAssentos();
   }
 
   public static void opcaoInvalida() {
     System.out.println("Opção inválida!");
     apresentacao();
-  }
-
-  public static Evento lerDadosEvento() {
-    String nome = lerNomeEvento();
-    String descricao = lerDescricaoEvento();
-    System.out.println("Informacoes da data do evento");
-    int mes = lerMesEvento();
-    int dia = lerDiaEvento(mes);
-    String horario = lerHorarioEvento();
-    double preco = lerPrecoEvento();
-    int capacidade = lerCapacidadeEvento();
-
-    return new Evento(nome, horario, mes, dia, descricao, preco, capacidade);
   }
 
   public static int lerCapacidadeEvento() {
@@ -129,13 +76,13 @@ public class Main {
     return Validador.validarHorario(horario);
   }
 
-  public static int lerDiaEvento(int mes) {
+  public static int lerDia(int mes) {
     System.out.println("Digite o dia: ");
     String dia = console.next();
     return Validador.validarDia(dia, mes);
   }
 
-  public static int lerMesEvento() {
+  public static int lerMes() {
     System.out.println("Digite o mês: ");
     String mes = console.next();
     return Validador.validarMes(mes);
@@ -151,6 +98,25 @@ public class Main {
     System.out.println("Digite o nome do evento: ");
     String nome = console.next();
     console.nextLine();
-    return Validador.validarNome(nome);
+    return Validador.validarNomeEvento(nome);
+  }
+
+  public static String lerNomeCliente() {
+    System.out.println("Digite o nome do cliente: ");
+    String nome = console.next();
+    console.nextLine();
+    return Validador.validarNomeCliente(nome);
+  }
+
+  public static String lerCpf() {
+    System.out.println("Digite o CPF do Cliente: ");
+    String cpf = console.next();
+    return Validador.validarCpf(cpf);
+  }
+
+  public static int lerAno() {
+    System.out.println("Digite o ano de nascimento: ");
+    String ano = console.next();
+    return Validador.validarAno(ano);
   }
 }

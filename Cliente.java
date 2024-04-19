@@ -6,7 +6,7 @@ public class Cliente {
   private String cpf;
   private LocalDate dataNasc;
 
-  public Cliente(String nome, String cpf,int ano, int mes, int dia){
+  public Cliente(String nome, String cpf, int ano, int mes, int dia){
     setNome(nome);
     setCpf(cpf);
     setDataNasc(LocalDate.of(ano, mes, dia));

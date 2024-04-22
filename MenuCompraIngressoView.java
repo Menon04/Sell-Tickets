@@ -3,29 +3,6 @@ import java.util.Scanner;
 
 public class MenuCompraIngressoView {
   public final static Scanner console = new Scanner(System.in);
-  private static ArrayList<String> opcoesCompra = new ArrayList<String>(); 
-  
-  public static void subMenuCompras() {
-    System.out.println("Escolha uma opção:");
-    System.out.println("1 - Comprar ingressos presencialmente");
-    System.out.println("2 - Comprar ingressos online");
-    String opcao = MenuCompraIngressoView.console.nextLine();
-
-    if (opcao.matches("[1-2]")) {
-      switch (opcao) {
-        case "1":
-          opcoesCompra.add("presencialmente");
-
-          break;
-        case "2":
-          opcoesCompra.add("online");
-          break;
-      }
-    } else {
-      System.out.println("Opção inválida.");
-      subMenuCompras();
-    } 
-  }
 
   public static void validarCliente() {
     ArrayList<Cliente> clientes = CadastradorClientes.clientes;

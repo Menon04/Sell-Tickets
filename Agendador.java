@@ -5,7 +5,7 @@ public class Agendador {
     switch (fileira) {
       case PLATEIA_A:
         AgendadorView.validarAssentoA(evento, quantidade);
-        Pagamento.realizarPagamento(evento.getPreco(), quantidade);
+        PagamentoView.subMenuCompras(evento.getPreco(), quantidade);
         break;
       case PLATEIA_B:
         AgendadorView.validarAssentoB(evento, quantidade);

@@ -87,4 +87,8 @@ public class Evento {
   public Assento getAssento() {
     return this.assento;
   }
+
+  public void diminuirCapacidade(int quantidade) {
+    this.capacidade -= quantidade;
+  }
 }

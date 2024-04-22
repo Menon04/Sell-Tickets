@@ -24,4 +24,25 @@ public class Assento {
   public int getGaleria() {
     return this.galeria;
   }
+
+  public void baixaAssentoA(int quantidade) {
+    this.plateiaA -= quantidade;
+  }
+
+  public void baixaAssentoB(int quantidade) {
+    this.plateiaB -= quantidade;
+  }
+
+  public void baixaBalcaoNobre(int quantidade) {
+    this.balcaoNobre -= quantidade;
+  }
+
+  public void baixaCamarotes(int quantidade) {
+    this.camarotes -= quantidade;
+  }
+
+  public void baixaGaleria(int quantidade) {
+    this.galeria -= quantidade;
+  }
+
 } 

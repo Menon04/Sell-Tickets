@@ -59,7 +59,7 @@ public class MenuCompraIngressoView {
 
     for (Evento evento : eventos) {
       if(nomeDoEvento.equals(evento.getNome())){
-        escolherAssento(evento);
+        escolherQuantidadeAssentos(evento);
       } else {
         System.out.println("Evento não encontrado.");
         MenuCompraIngresso.apresentacao();
@@ -67,11 +67,24 @@ public class MenuCompraIngressoView {
     }
   }
 
-  private static void escolherQuantidadeAssentos(){
-    //proximo implement
+  private static void escolherQuantidadeAssentos(Evento evento){
+    if (evento.getCapacidade() < 1) {
+      System.out.println("Não é possivel reservar mais assentos para esse evento");
+      MenuCompraIngresso.apresentacao();
+    }
+
+    System.out.println("Quantos assentos deseja comprar: ");
+    String quantidadeStr = console.nextLine();
+
+    while(!(quantidadeStr.matches("\\d+")) || Integer.parseInt(quantidadeStr) < 1) {
+      System.out.println("Quantidade inválida! Digite novamente.");
+      quantidadeStr = console.next();
+    } 
+
+    escolherPosicaoAssento(evento, Integer.parseInt(quantidadeStr));
   }
 
-  public static void escolherAssento(Evento evento) {
+  public static void escolherPosicaoAssento(Evento evento, int quantidade) {
     System.out.println("Onde deseja comprar o(s) ingresso(s)?");
     System.out.println("1 - Plateia A");
     System.out.println("2 - Plateia B");
@@ -83,24 +96,24 @@ public class MenuCompraIngressoView {
     if (opcao.matches("[1-5]")) {
       switch (opcao) {
         case "1":
-          Agendador.reservarAssento("1", evento);
+          Agendador.reservarAssento(TipoAssento.PLATEIA_A, evento, quantidade);
           break;
         case "2":
-          Agendador.reservarAssento("2", evento);
+          Agendador.reservarAssento(TipoAssento.PLATEIA_B, evento, quantidade);
           break;
         case "3":
-          Agendador.reservarAssento("3", evento);
+          Agendador.reservarAssento(TipoAssento.BALCAO_NOBRE, evento, quantidade);
           break;
         case "4":
-          Agendador.reservarAssento("4", evento);
+          Agendador.reservarAssento(TipoAssento.CAMAROTE, evento, quantidade);
           break;
         case "5":
-          Agendador.reservarAssento("5", evento);
+          Agendador.reservarAssento(TipoAssento.GALERIA, evento, quantidade);
           break;
       }
     } else {
       System.out.println("Opção inválida.");
-      escolherAssento(evento);
+      escolherPosicaoAssento(evento, quantidade);
     }
   }
 }

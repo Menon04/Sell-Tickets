@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ControladorClientes {
+public class CadastradorClientes {
   public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
   public static void cadastrarCliente() {
@@ -16,22 +16,19 @@ public class ControladorClientes {
 
     if (clienteExistente) {
       System.out.println("Já existe um cliente cadastrado com esse CPF.");
-      MenuPrincipal.apresentacao();
     } else {
       clientes.add(cliente);
       System.out.println("Cliente cadastrado com sucesso!");
-      MenuPrincipal.apresentacao();
     }
   }
 
   public static Cliente lerDadosCliente() {
-    String nome = Main.lerNomeCliente();
-    String cpf = Main.lerCpf();
-    int ano = Main.lerAno();
-    int mes = Main.lerMes();
-    int dia = Main.lerDia(mes);
+    String nome = MenuPrincipalView.lerNomeCliente();
+    String cpf = MenuPrincipalView.lerCpf();
+    int ano = MenuPrincipalView.lerAno();
+    int mes = MenuPrincipalView.lerMes();
+    int dia = MenuPrincipalView.lerDia(mes);
 
     return new Cliente(nome, cpf, ano, mes, dia);
   }
-
 }

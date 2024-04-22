@@ -9,7 +9,7 @@ public class MenuCompraIngresso {
     System.out.println("1 - Comprar ingresso");
     System.out.println("2 - Verificar assentos disponíveis");
     System.out.println("3 - Voltar ao menu principal");
-    String opcao = Main.console.nextLine();
+    String opcao = MenuCompraIngressoView.console.nextLine();
 
     if (opcao.matches("[1-3]")) {
       switch (opcao) {
@@ -17,7 +17,7 @@ public class MenuCompraIngresso {
           validarCliente();
           break;
         case "2":
-          ControladorEventos.listarEventos();
+          CadastradorEventos.listarEventos();
           break;
         case "3":
           MenuPrincipal.apresentacao();
@@ -30,7 +30,7 @@ public class MenuCompraIngresso {
   }
 
   public static void validarCliente() {
-    ArrayList<Cliente> clientes = ControladorClientes.clientes;
+    ArrayList<Cliente> clientes = CadastradorClientes.clientes;
 
     if (clientes.isEmpty()) {
       System.out.println("Não há clientes cadastrados.");
@@ -50,7 +50,7 @@ public class MenuCompraIngresso {
   }
 
   private static void escolherEvento() {
-    ArrayList<Evento> eventos = ControladorEventos.eventos;
+    ArrayList<Evento> eventos = CadastradorEventos.eventos;
 
     if (eventos.isEmpty()) {
       System.out.println("Não há eventos disponiveis no momento.");
@@ -76,7 +76,7 @@ public class MenuCompraIngresso {
     System.out.println("3 - Calcao Nobre");
     System.out.println("4 - Camarote");
     System.out.println("5 - Galeria");
-    String opcao = Main.console.nextLine();
+    String opcao = MenuCompraIngressoView.console.nextLine();
 
     if (opcao.matches("[1-5]")) {
       switch (opcao) {
@@ -101,5 +101,4 @@ public class MenuCompraIngresso {
       escolherAssento(evento);
     }
   }
-
 }

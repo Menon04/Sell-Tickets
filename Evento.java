@@ -87,5 +87,4 @@ public class Evento {
   public Assento getAssento() {
     return this.assento;
   }
-
 }

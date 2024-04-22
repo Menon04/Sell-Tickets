@@ -5,44 +5,45 @@ public class MenuPrincipal {
     System.out.println("Escolha uma opção: ");
     System.out.println("1 - Listar Eventos Semanais");
     System.out.println("2 - Comprar Ingresso");
-    System.out.println("3 - Informações de Assentos");
+    System.out.println("3 - Disposição de Assentos");
     System.out.println("4 - Cadastrar Evento");
     System.out.println("5 - Cadastrar Cliente");
     System.out.println("6 - Sair");
-    String opcao = Main.console.next();
+    String opcao = MenuPrincipalView.console.next();
 
     if (opcao.matches("[1-6]")) {
       switch (opcao) {
         case "1":
-          ControladorEventos.listarEventos();
+          MenuPrincipalView.listarEventos();
+          MenuPrincipalView.deplay();
           apresentacao();
           break;
         case "2":
           MenuCompraIngresso.apresentacao();
+          MenuPrincipalView.deplay();
           break;
         case "3":
-          Assento.informacoesAssentos();
+          AssentoView.informacoesGeraisAssentos();
+          MenuPrincipalView.deplay();
           break;
         case "4":
-          ControladorEventos.cadastrarEventos();
+          CadastradorEventos.cadastrarEventos();
+          MenuPrincipalView.deplay();
           apresentacao();
           break;
         case "5":
-          ControladorClientes.cadastrarCliente();
+          CadastradorClientes.cadastrarCliente();
+          MenuPrincipalView.deplay();
           apresentacao();
           break;
         case "6":
-          System.out.println("Obrigado por utilizar o sistema!");
+          System.out.println("Obrigado por vizitar o Teatro Municipal!");
           System.exit(0);
           break;
       }
     } else {
-      opcaoInvalida();
+      System.out.println("Opção inválida!");
+      apresentacao();
     }
-  }
-
-  public static void opcaoInvalida() {
-    System.out.println("Opção inválida!");
-    apresentacao();
   }
 }

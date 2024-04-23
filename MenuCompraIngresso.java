@@ -13,12 +13,15 @@ public class MenuCompraIngresso {
       switch (opcao) {
         case "1":
           MenuCompraIngressoView.validarCliente();
+          MenuPrincipalView.deplay();
           break;
         case "2":
           MenuPrincipalView.listarEventos();
+          MenuPrincipalView.deplay();
           break;
         case "3":
           MenuPrincipal.apresentacao();
+          MenuPrincipalView.deplay();
           break;
       }
     } else {

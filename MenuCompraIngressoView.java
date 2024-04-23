@@ -74,18 +74,23 @@ public class MenuCompraIngressoView {
       switch (opcao) {
         case "1":
           Agendador.reservarAssento(TipoAssento.PLATEIA_A, ingresso);
+          MenuPrincipalView.deplay();
           break;
         case "2":
           Agendador.reservarAssento(TipoAssento.PLATEIA_B, ingresso);
+          MenuPrincipalView.deplay();
           break;
         case "3":
           Agendador.reservarAssento(TipoAssento.BALCAO_NOBRE, ingresso);
+          MenuPrincipalView.deplay();
           break;
         case "4":
           Agendador.reservarAssento(TipoAssento.CAMAROTE, ingresso);
+          MenuPrincipalView.deplay();
           break;
         case "5":
           Agendador.reservarAssento(TipoAssento.GALERIA, ingresso);
+          MenuPrincipalView.deplay();
           break;
       }
     } else {

@@ -1,58 +1,57 @@
 public class AgendadorView {
 
-  public static void validarAssentoA(Evento evento, int quantidade) {
-    if (evento.getAssento().getPlateiaA() < 1) {
+  public static void validarAssentoA(Ingresso ingresso) {
+    if (ingresso.getEvento().getAssento().getPlateiaA() < 1) {
       System.out.println("Não há assentos disponiveis na Plateia A");
-      MenuCompraIngressoView.escolherPosicaoAssento(evento, quantidade);
+      MenuCompraIngressoView.escolherPosicaoAssento(ingresso);
     } else {
-      evento.diminuirCapacidade(quantidade);
-      evento.getAssento().baixaAssentoA(quantidade);
+      ingresso.getEvento().diminuirCapacidade(ingresso.getQuantidadeAssentos());
+      ingresso.getEvento().getAssento().baixaAssentoA(ingresso.getQuantidadeAssentos());
       System.out.println("Assento reservado com sucesso!");
     }
   }
 
-  public static void validarAssentoB(Evento evento, int quantidade) {
-    if (evento.getAssento().getPlateiaB() < 1) {
+  public static void validarAssentoB(Ingresso ingresso) {
+    if (ingresso.getEvento().getAssento().getPlateiaB() < 1) {
       System.out.println("Não há assentos disponiveis na Plateia B");
-      MenuCompraIngressoView.escolherPosicaoAssento(evento, quantidade);
+      MenuCompraIngressoView.escolherPosicaoAssento(ingresso);
     } else {
-      evento.diminuirCapacidade(quantidade);
-      evento.getAssento().baixaAssentoB(quantidade);
+      ingresso.getEvento().diminuirCapacidade(ingresso.getQuantidadeAssentos());
+      ingresso.getEvento().getAssento().baixaAssentoB(ingresso.getQuantidadeAssentos());
       System.out.println("Assento reservado com sucesso!");
     }
   }
 
-  public static void validarBalcaoNobre(Evento evento, int quantidade) {
-    if (evento.getAssento().getBalcaoNobre() < 1) {
+  public static void validarBalcaoNobre(Ingresso ingresso) {
+    if (ingresso.getEvento().getAssento().getBalcaoNobre() < 1) {
       System.out.println("Não há assentos disponiveis no Balcão Nobre");
-      MenuCompraIngressoView.escolherPosicaoAssento(evento, quantidade);
+      MenuCompraIngressoView.escolherPosicaoAssento(ingresso);
     } else {
-      evento.diminuirCapacidade(quantidade);
-      evento.getAssento().baixaBalcaoNobre(quantidade);
+      ingresso.getEvento().diminuirCapacidade(ingresso.getQuantidadeAssentos());
+      ingresso.getEvento().getAssento().baixaBalcaoNobre(ingresso.getQuantidadeAssentos());
       System.out.println("Assento reservado com sucesso!");
     }
   }
 
-  public static void validarCamarotes(Evento evento, int quantidade) {
-    if (evento.getAssento().getCamarotes() < 1) {
+  public static void validarCamarotes(Ingresso ingresso) {
+    if (ingresso.getEvento().getAssento().getCamarotes() < 1) {
       System.out.println("Não há assentos disponiveis no Camarote");
-      MenuCompraIngressoView.escolherPosicaoAssento(evento, quantidade);
+      MenuCompraIngressoView.escolherPosicaoAssento(ingresso);
     } else {
-      evento.diminuirCapacidade(quantidade);
-      evento.getAssento().baixaCamarotes(quantidade);
+      ingresso.getEvento().diminuirCapacidade(ingresso.getQuantidadeAssentos());
+      ingresso.getEvento().getAssento().baixaCamarotes(ingresso.getQuantidadeAssentos());
       System.out.println("Assento reservado com sucesso!");
     }
   }
 
-  public static void validarGaleria(Evento evento, int quantidade) {
-    if (evento.getAssento().getGaleria() < 1) {
+  public static void validarGaleria(Ingresso ingresso) {
+    if (ingresso.getEvento().getAssento().getGaleria() < 1) {
       System.out.println("Não há assentos disponiveis na Galeria");
-      MenuCompraIngressoView.escolherPosicaoAssento(evento, quantidade);
+      MenuCompraIngressoView.escolherPosicaoAssento(ingresso);
     } else {
-      evento.diminuirCapacidade(quantidade);
-      evento.getAssento().baixaGaleria(quantidade);
+      ingresso.getEvento().diminuirCapacidade(ingresso.getQuantidadeAssentos());
+      ingresso.getEvento().getAssento().baixaGaleria(ingresso.getQuantidadeAssentos());
       System.out.println("Assento reservado com sucesso!");
     }
   }
-
 }

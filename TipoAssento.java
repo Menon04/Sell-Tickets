@@ -1,4 +1,5 @@
 public enum TipoAssento {
+
     PLATEIA_A(1, "Plateia A"),
     PLATEIA_B(2, "Plateia B"),
     BALCAO_NOBRE(3, "Balcão Nobre"),

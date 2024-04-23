@@ -16,7 +16,7 @@ public class MenuCompraIngressoView {
 
     for (Cliente cliente : clientes) {
       if (cliente.getCpf().equals(cpfCliente)) {
-        escolherEvento();
+        escolherEvento(CadastradorIngressos.criarIngresso(cliente));
       } else {
         System.out.println("Cliente não cadastrado.");
         MenuCompraIngresso.apresentacao();
@@ -24,7 +24,7 @@ public class MenuCompraIngressoView {
     }
   }
 
-  private static void escolherEvento() {
+  private static void escolherEvento(Ingresso ingresso) {
     ArrayList<Evento> eventos = CadastradorEventos.eventos;
 
     if (eventos.isEmpty()) {
@@ -36,7 +36,7 @@ public class MenuCompraIngressoView {
 
     for (Evento evento : eventos) {
       if(nomeDoEvento.equals(evento.getNome())){
-        escolherQuantidadeAssentos(evento);
+        escolherQuantidadeAssentos(CadastradorIngressos.adicionarEvento(evento, ingresso));
       } else {
         System.out.println("Evento não encontrado.");
         MenuCompraIngresso.apresentacao();
@@ -44,8 +44,8 @@ public class MenuCompraIngressoView {
     }
   }
 
-  private static void escolherQuantidadeAssentos(Evento evento){
-    if (evento.getCapacidade() < 1) {
+  private static void escolherQuantidadeAssentos(Ingresso ingresso){
+    if (ingresso.getEvento().getCapacidade() < 1) {
       System.out.println("Não é possivel reservar mais assentos para esse evento");
       MenuCompraIngresso.apresentacao();
     }
@@ -58,10 +58,10 @@ public class MenuCompraIngressoView {
       quantidadeStr = console.next();
     } 
 
-    escolherPosicaoAssento(evento, Integer.parseInt(quantidadeStr));
+    escolherPosicaoAssento(CadastradorIngressos.adicionarQuantidadeAssentos(ingresso, Integer.parseInt(quantidadeStr)));
   }
 
-  public static void escolherPosicaoAssento(Evento evento, int quantidade) {
+  public static void escolherPosicaoAssento(Ingresso ingresso) {
     System.out.println("Onde deseja comprar o(s) ingresso(s)?");
     System.out.println("1 - Plateia A");
     System.out.println("2 - Plateia B");
@@ -73,24 +73,24 @@ public class MenuCompraIngressoView {
     if (opcao.matches("[1-5]")) {
       switch (opcao) {
         case "1":
-          Agendador.reservarAssento(TipoAssento.PLATEIA_A, evento, quantidade);
+          Agendador.reservarAssento(TipoAssento.PLATEIA_A, ingresso);
           break;
         case "2":
-          Agendador.reservarAssento(TipoAssento.PLATEIA_B, evento, quantidade);
+          Agendador.reservarAssento(TipoAssento.PLATEIA_B, ingresso);
           break;
         case "3":
-          Agendador.reservarAssento(TipoAssento.BALCAO_NOBRE, evento, quantidade);
+          Agendador.reservarAssento(TipoAssento.BALCAO_NOBRE, ingresso);
           break;
         case "4":
-          Agendador.reservarAssento(TipoAssento.CAMAROTE, evento, quantidade);
+          Agendador.reservarAssento(TipoAssento.CAMAROTE, ingresso);
           break;
         case "5":
-          Agendador.reservarAssento(TipoAssento.GALERIA, evento, quantidade);
+          Agendador.reservarAssento(TipoAssento.GALERIA, ingresso);
           break;
       }
     } else {
       System.out.println("Opção inválida.");
-      escolherPosicaoAssento(evento, quantidade);
+      escolherPosicaoAssento(ingresso);
     }
   }
 }

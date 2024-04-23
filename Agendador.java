@@ -1,24 +1,24 @@
 public class Agendador {
   
-  public static void reservarAssento(TipoAssento fileira, Evento evento, int quantidade) {
-
+  public static void reservarAssento(TipoAssento fileira, Ingresso ingresso) {
     switch (fileira) {
       case PLATEIA_A:
-        AgendadorView.validarAssentoA(evento, quantidade);
-        PagamentoView.subMenuCompras(evento.getPreco(), quantidade);
+        AgendadorView.validarAssentoA(ingresso);
         break;
       case PLATEIA_B:
-        AgendadorView.validarAssentoB(evento, quantidade);
+        AgendadorView.validarAssentoB(ingresso);
         break;
       case BALCAO_NOBRE:
-        AgendadorView.validarBalcaoNobre(evento, quantidade);
+        AgendadorView.validarBalcaoNobre(ingresso);
         break;
       case CAMAROTE:
-        AgendadorView.validarCamarotes(evento, quantidade);
+        AgendadorView.validarCamarotes(ingresso);
         break;
       case GALERIA:
-        AgendadorView.validarGaleria(evento, quantidade);
+        AgendadorView.validarGaleria(ingresso);
         break;
     }
+
+    PagamentoView.opçoesPagamento(ingresso);
 	}
 }

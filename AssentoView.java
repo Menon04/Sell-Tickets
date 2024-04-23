@@ -1,4 +1,5 @@
 public class AssentoView {
+  
   public static void informacoesGeraisAssentos() {
     System.out.println("Informe qual seção de assentos você gostaria de saber mais: ");
     System.out.println("1 - Plateia");

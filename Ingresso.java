@@ -1,21 +1,8 @@
 public class Ingresso {
   private Evento evento;
-  private int assento;
-  private String nomeUsuario;
-
-  public Ingresso(Evento evento, int cadeira, String nomeUsuario){
-    setAssento(assento);
-    setEvento(evento);
-    setNomeUsuario(nomeUsuario);
-  }
-
-  public double aplicaDesconto(){
-    return 0;
-  }
-  
-  public boolean aplicaMeiaEntrada(){
-    return true;
-  }
+  private Cliente comprador;
+  private int quantidadeAssentos;
+  private boolean valido = false;
 
   public Evento getEvento(){
     return this.evento;
@@ -26,19 +13,30 @@ public class Ingresso {
   }
 
   public int getAssento(){
-    return this.assento;
+    return this.quantidadeAssentos;
   }
 
-  public void setAssento(int assento){
-    this.assento = assento;
+  public void setQuantidadeAseentos(int quantidadeAssentos){
+    this.quantidadeAssentos = quantidadeAssentos;
+  }
+
+  public int getQuantidadeAssentos() {
+    return quantidadeAssentos;
   }
   
-  public String getNomeUsuario(){
-    return this.nomeUsuario;
+  public Cliente getComprador(){
+    return this.comprador;
   }
 
-  public void setNomeUsuario(String nomeUsuario){
-    this.nomeUsuario = nomeUsuario;
+  public void setComprador(Cliente comprador){
+    this.comprador = comprador;
   }
 
+  public void validarIngresso() {
+    this.valido = true;
+  }
+
+  public boolean checarIngresso() {
+    return this.valido;
+  }
 }

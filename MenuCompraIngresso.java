@@ -18,6 +18,7 @@ public class MenuCompraIngresso {
         case "2":
           MenuPrincipalView.listarEventos();
           MenuPrincipalView.deplay();
+          apresentacao();
           break;
         case "3":
           MenuPrincipal.apresentacao();

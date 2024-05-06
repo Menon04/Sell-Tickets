@@ -1,18 +1,20 @@
 public class Pagamento {
 
-  public static void geradorComprovante(Ingresso ingresso) {
-    ingresso.validarIngresso();
+  public static void descontarPrecoQuantidade(Ingresso ingresso) {
+    ingresso.alterarValor(ingresso.getValor() * 0.95); 
   }
 
-  public static void acrescentarTaxaCompraOnline(Evento evento) {
-    evento.setPreco(evento.getPreco() * 1.01);
+  public static void descontarMeiaEntrada(Ingresso ingresso) {
+    ingresso.alterarValor(ingresso.getValor() * 0.5);
   }
 
-  public static void descontarPrecoQuantidade(Evento evento) {
-    evento.setPreco(evento.getPreco() * 0.95); 
+  public static void compraOnline(Ingresso ingresso) {
+    ingresso.alterarValor(ingresso.getValor() * 1.01);
   }
 
-  public static void descontarMeiaEntrada(Evento evento) {
-    evento.setPreco(evento.getPreco() * 0.5);
+  public static void calcularDescontoQuantidade(Ingresso ingresso) {
+    if (ingresso.getQuantidadeAssentos() >= 3) {
+      Pagamento.descontarPrecoQuantidade(ingresso);
+    }
   }
 }

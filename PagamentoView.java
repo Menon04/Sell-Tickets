@@ -1,6 +1,8 @@
 public class PagamentoView {
 
   public static void opçoesPagamento(Ingresso ingresso) {
+    Pagamento.calcularDescontoQuantidade(ingresso);
+
     System.out.println("Escolha uma opção:");
     System.out.println("1 - Comprar ingressos presencialmente");
     System.out.println("2 - Comprar ingressos online");
@@ -9,25 +11,17 @@ public class PagamentoView {
     if (opcao.matches("[1-2]")) {
       switch (opcao) {
         case "1":
-          descontoQuantidade(ingresso);
+          descontoIdade(ingresso);
           break;
         case "2":
-          Pagamento.acrescentarTaxaCompraOnline(ingresso.getEvento());
-          descontoQuantidade(ingresso);
+          Pagamento.compraOnline(ingresso);
+          descontoIdade(ingresso);
           break;
       }
     } else {
       System.out.println("Opção inválida.");
       opçoesPagamento(ingresso);
     } 
-  }
-
-  public static void descontoQuantidade(Ingresso ingresso) {
-    if (ingresso.getQuantidadeAssentos() >= 3) {
-      Pagamento.descontarPrecoQuantidade(ingresso.getEvento());
-    }
-
-    descontoIdade(ingresso);
   }
 
   private static void descontoIdade(Ingresso ingresso) {
@@ -39,11 +33,15 @@ public class PagamentoView {
     if (opcao.matches("[1-2]")) {
       switch (opcao) {
         case "1":
-          Pagamento.descontarMeiaEntrada(ingresso.getEvento());
-          System.out.println("Valor total: " + ingresso.getEvento().getPreco());
+          Pagamento.descontarMeiaEntrada(ingresso);
+          System.out.println("=====================================");
+          System.out.println("Valor total: " + ingresso.getValor());
+          System.out.println("=====================================");
           break;
         case "2":
-          System.out.println("Valor total: " + ingresso.getEvento().getPreco());
+          System.out.println("=====================================");
+          System.out.println("Valor total: " + ingresso.getValor());
+          System.out.println("=====================================");
           break;
       }
     } else {
@@ -64,12 +62,13 @@ public class PagamentoView {
 
     if (opcao.matches("[1-4]")) {
       System.out.println("Pagamento efetuado com sucesso!");
-      Pagamento.geradorComprovante(ingresso);
+      ingresso.setValidade();
     } else {
       System.out.println("Opção inválida.");
       finalizarPagamento(ingresso);
     }
 
+    MenuPrincipalView.deplay();
     MenuPrincipal.apresentacao();
   }
 }

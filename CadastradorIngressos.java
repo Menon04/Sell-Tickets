@@ -13,6 +13,7 @@ public class CadastradorIngressos {
 
   public static Ingresso adicionarQuantidadeAssentos(Ingresso ingresso, int quantidadeAssentos) {
     ingresso.setQuantidadeAseentos(quantidadeAssentos);
+    ingresso.setValorInicial();
     return ingresso;
   }
 }

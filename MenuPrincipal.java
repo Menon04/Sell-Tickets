@@ -8,10 +8,11 @@ public class MenuPrincipal {
     System.out.println("3 - Disposição de Assentos");
     System.out.println("4 - Cadastrar Evento");
     System.out.println("5 - Cadastrar Cliente");
-    System.out.println("6 - Sair");
+    System.out.println("6 - Ver relatorio dos eventos");
+    System.out.println("7 - Sair");
     String opcao = MenuPrincipalView.console.next();
 
-    if (opcao.matches("[1-6]")) {
+    if (opcao.matches("[1-7]")) {
       switch (opcao) {
         case "1":
           MenuPrincipalView.listarEventos();
@@ -37,6 +38,8 @@ public class MenuPrincipal {
           apresentacao();
           break;
         case "6":
+          
+        case "7":
           System.out.println("Obrigado por vizitar o Teatro Municipal!");
           System.exit(0);
           break;

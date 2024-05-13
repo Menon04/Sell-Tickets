@@ -38,7 +38,9 @@ public class MenuPrincipal {
           apresentacao();
           break;
         case "6":
-          
+          System.out.println(Relatorio.relatorioEventos());
+          MenuPrincipalView.deplay();
+          apresentacao();
         case "7":
           System.out.println("Obrigado por vizitar o Teatro Municipal!");
           System.exit(0);

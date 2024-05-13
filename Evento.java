@@ -9,7 +9,7 @@ public class Evento {
   private String descricao;
   private double preco;
   private int capacidade = 1751;
-  
+  private double totalArrecadado = 0;
   
   public Evento(String nome, String horario, int mes, int dia, String descricao, double preco) {
     setNome(nome);
@@ -90,5 +90,17 @@ public class Evento {
 
   public void diminuirCapacidade(int quantidade) {
     this.capacidade -= quantidade;
+  }
+
+  public void setTotalArrecadado(double valor) {
+    this.totalArrecadado += valor;
+  }
+
+  public double getTotalArrecadado() {
+    return this.totalArrecadado;
+  }
+
+  public int getAssentosOcupados() {
+    return this.capacidade;
   }
 }

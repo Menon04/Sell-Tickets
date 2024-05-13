@@ -1,26 +1,19 @@
 import java.util.ArrayList;
 
 public class Relatorio {
-  private ArrayList<Evento> eventos = CadastradorEventos.eventos;
-  private int CAPACIDADE_TOTAL = 1751;
+  private static ArrayList<Evento> eventos = CadastradorEventos.eventos;
 
-  public String relatorioEventos(){
+  public static String relatorioEventos(){
     String relatorio = "";
+    if (eventos.isEmpty()) {
+      return "Não há eventos cadastrados!";
+    }
+
     for (Evento evento : eventos) {
       relatorio += evento.getNome() + "\n" 
-      + "Arrecadou um total de: " + valorArrecadado(evento) + "$" + "\n" 
-      + "Teve um total de: " + assentosOcupados(evento) + "asssentos ocupados" + "\n";
+      + "Arrecadou um total de: R$" + evento.getTotalArrecadado() + "\n" 
+      + "Teve um total de: " + evento.getCapacidade() + " asssentos ocupados" + "\n";
     }
     return relatorio;
-  }
-
-  public String valorArrecadado(Evento evento){
-    double vendas = CAPACIDADE_TOTAL - evento.getCapacidade();
-    return Double.toString((vendas * evento.getPreco()));
-  }
-
-  public String assentosOcupados(Evento evento){
-    int assentosOcupados = (evento.getCapacidade() - CAPACIDADE_TOTAL) * -1;
-    return Integer.toString(assentosOcupados);
   }
 }

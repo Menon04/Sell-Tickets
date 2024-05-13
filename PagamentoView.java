@@ -63,6 +63,7 @@ public class PagamentoView {
     if (opcao.matches("[1-4]")) {
       System.out.println("Pagamento efetuado com sucesso!");
       ingresso.setValidade();
+      ingresso.getEvento().setTotalArrecadado(ingresso.getValor());
     } else {
       System.out.println("Opção inválida.");
       finalizarPagamento(ingresso);

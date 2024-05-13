@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Pagamento
+comment1.params=ingresso
+comment1.target=void\ descontarPrecoQuantidade(Ingresso)
+comment2.params=ingresso
+comment2.target=void\ descontarMeiaEntrada(Ingresso)
+comment3.params=ingresso
+comment3.target=void\ compraOnline(Ingresso)
+comment4.params=ingresso
+comment4.target=void\ calcularDescontoQuantidade(Ingresso)
+numComments=5

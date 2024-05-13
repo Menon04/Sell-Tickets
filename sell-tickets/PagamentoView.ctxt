@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=PagamentoView
+comment1.params=ingresso
+comment1.target=void\ op\u00E7oesPagamento(Ingresso)
+comment2.params=ingresso
+comment2.target=void\ descontoIdade(Ingresso)
+comment3.params=ingresso
+comment3.target=void\ finalizarPagamento(Ingresso)
+numComments=4

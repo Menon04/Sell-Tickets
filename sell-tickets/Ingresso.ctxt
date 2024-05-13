@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Ingresso
+comment1.params=
+comment1.target=Evento\ getEvento()
+comment10.params=
+comment10.target=double\ getValor()
+comment11.params=
+comment11.target=void\ setValorInicial()
+comment12.params=valor
+comment12.target=void\ alterarValor(double)
+comment2.params=evento
+comment2.target=void\ setEvento(Evento)
+comment3.params=
+comment3.target=int\ getAssento()
+comment4.params=quantidadeAssentos
+comment4.target=void\ setQuantidadeAseentos(int)
+comment5.params=
+comment5.target=int\ getQuantidadeAssentos()
+comment6.params=
+comment6.target=Cliente\ getComprador()
+comment7.params=comprador
+comment7.target=void\ setComprador(Cliente)
+comment8.params=
+comment8.target=void\ setValidade()
+comment9.params=
+comment9.target=boolean\ checarIngresso()
+numComments=13

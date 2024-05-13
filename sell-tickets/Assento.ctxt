@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Assento
+comment1.params=
+comment1.target=int\ getPlateiaA()
+comment10.params=quantidade
+comment10.target=void\ baixaGaleria(int)
+comment2.params=
+comment2.target=int\ getPlateiaB()
+comment3.params=
+comment3.target=int\ getBalcaoNobre()
+comment4.params=
+comment4.target=int\ getCamarotes()
+comment5.params=
+comment5.target=int\ getGaleria()
+comment6.params=quantidade
+comment6.target=void\ baixaAssentoA(int)
+comment7.params=quantidade
+comment7.target=void\ baixaAssentoB(int)
+comment8.params=quantidade
+comment8.target=void\ baixaBalcaoNobre(int)
+comment9.params=quantidade
+comment9.target=void\ baixaCamarotes(int)
+numComments=11

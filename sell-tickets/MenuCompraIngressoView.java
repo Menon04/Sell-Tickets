@@ -53,7 +53,7 @@ public class MenuCompraIngressoView {
     System.out.println("Quantos assentos deseja comprar: ");
     String quantidadeStr = console.nextLine();
 
-    while(!(quantidadeStr.matches("\\d+")) || Integer.parseInt(quantidadeStr) < 1) {
+    while(!(quantidadeStr.matches("\\d+")) || Integer.parseInt(quantidadeStr) < 1 || Integer.parseInt(quantidadeStr) > ingresso.getEvento().getCapacidade()){
       System.out.println("Quantidade inválida! Digite novamente.");
       quantidadeStr = console.next();
     } 
@@ -68,9 +68,10 @@ public class MenuCompraIngressoView {
     System.out.println("3 - Balcao Nobre");
     System.out.println("4 - Camarote");
     System.out.println("5 - Galeria");
+    System.out.println("6 - Voltar ao menu de compra");
     String opcao = MenuCompraIngressoView.console.nextLine();
 
-    if (opcao.matches("[1-5]")) {
+    if (opcao.matches("[1-6]")) {
       switch (opcao) {
         case "1":
           Agendador.reservarAssento(TipoAssento.PLATEIA_A, ingresso);
@@ -90,6 +91,10 @@ public class MenuCompraIngressoView {
           break;
         case "5":
           Agendador.reservarAssento(TipoAssento.GALERIA, ingresso);
+          MenuPrincipalView.deplay();
+          break;
+        case "6":
+          MenuCompraIngresso.apresentacao();
           MenuPrincipalView.deplay();
           break;
       }
